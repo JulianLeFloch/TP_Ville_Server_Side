@@ -13,23 +13,23 @@ public class VilleBloImpl implements VilleBlo {
 
 	@Autowired
 	private VilleDao villeDao;
-	
+
 	@SuppressWarnings("rawtypes")
 	public ArrayList getInfoVilles() {
 		ArrayList villes;
-		
+
 		villes = villeDao.findAllVilles();
 		return villes;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public ArrayList getInfoVille(String nomCodeInsee) {
 		ArrayList ville;
-		
+
 		ville = villeDao.findVille(nomCodeInsee);
 		return ville;
 	}
-	
+
 	public String postVille(Ville ville) {
 		String reponse = villeDao.createVille(ville);
 		return reponse;

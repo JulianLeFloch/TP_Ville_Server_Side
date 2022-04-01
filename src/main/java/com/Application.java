@@ -11,4 +11,3 @@ public class Application {
 		System.out.println("Application demarrée, vous pouvez utiliser le serveur !");
 	}
 }
- 

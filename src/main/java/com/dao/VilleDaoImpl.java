@@ -16,13 +16,10 @@ public class VilleDaoImpl implements VilleDao {
 	Connection conn = null;
 	String reponse = "echec";
 	Ville ville = null;
-	
-	
-	
-	@SuppressWarnings("rawtypes")
-	public ArrayList findAllVilles() {
-		@SuppressWarnings("unchecked")
-		ArrayList<Ville> villes = new ArrayList();
+	String error = "Erreur lors de la requête";
+
+	public ArrayList<Ville> findAllVilles() {
+		ArrayList<Ville> villes = new ArrayList<Ville>();
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "SELECT * FROM ville_france";
@@ -43,19 +40,18 @@ public class VilleDaoImpl implements VilleDao {
 			}
 
 		} catch (SQLException e) {
+			throw new Error(error);
 		}
 
 		return villes;
 	}
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public ArrayList findVille(String nom_Code_Insee) {	
-		@SuppressWarnings({ "unchecked" })
-		ArrayList<Ville> villeDemandee = new ArrayList();
+	public ArrayList<Ville> findVille(String nomCodeInsee) {
+
+		ArrayList<Ville> villeDemandee = new ArrayList<Ville>();
 		try {
 			conn = JDBCConfigure.getConnection();
-			String query = "SELECT * FROM ville_france WHERE code_commune_INSEE="+nom_Code_Insee;
+			String query = "SELECT * FROM ville_france WHERE code_commune_INSEE=" + nomCodeInsee;
 			st = conn.createStatement();
 			rs = st.executeQuery(query);
 
@@ -72,25 +68,25 @@ public class VilleDaoImpl implements VilleDao {
 			}
 
 		} catch (SQLException e) {
+			throw new Error(error);
 		}
 
 		return villeDemandee;
 	}
 
-	public String createVille(Ville ville) {	
+	public String createVille(Ville ville) {
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "INSERT INTO ville_france VALUES('" + ville.getCodeCommuneInsee() + "', '"
-					+ ville.getNomCommune() + "', '" + ville.getCodePostal() + "', '"
-					+ ville.getLibelleAcheminement() + "', '" + ville.getLigne5() + "', '" + ville.getLatitude()
-					+ "', '" + ville.getLongitude() + "')";
+					+ ville.getNomCommune() + "', '" + ville.getCodePostal() + "', '" + ville.getLibelleAcheminement()
+					+ "', '" + ville.getLigne5() + "', '" + ville.getLatitude() + "', '" + ville.getLongitude() + "')";
 			st = conn.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
 			reponse = "reussite";
 			return reponse;
 		} catch (SQLException e) {
-			return reponse;
+			throw new Error(error);
 		}
 	}
 
@@ -107,23 +103,20 @@ public class VilleDaoImpl implements VilleDao {
 			reponse = "reussite";
 			return reponse;
 		} catch (SQLException e) {
-			return reponse;
+			throw new Error(error);
 		}
 	}
 
 	public String deleteVille(String code) {
-			try {
-				conn = JDBCConfigure.getConnection();
-				String query = "DELETE FROM ville_france WHERE Code_commune_INSEE=" + code;
-				st = conn.createStatement(); 
-				st.executeUpdate(query);
-				reponse = "reussite";
-				return reponse;
-			}
-			
-			catch (SQLException e) {
+		try {
+			conn = JDBCConfigure.getConnection();
+			String query = "DELETE FROM ville_france WHERE Code_commune_INSEE=" + code;
+			st = conn.createStatement();
+			st.executeUpdate(query);
+			reponse = "reussite";
 			return reponse;
+		} catch (SQLException e) {
+			throw new Error(error);
 		}
 	}
 }
-
