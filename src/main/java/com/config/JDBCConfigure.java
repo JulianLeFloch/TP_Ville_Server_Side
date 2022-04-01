@@ -17,7 +17,6 @@ public class JDBCConfigure {
 			return DriverManager.getConnection(System.getenv().get("db_name"), System.getenv().get("db_user"),
 					System.getenv().get("db_pwd"));
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.exit(0);
 			throw new Error("Erreur sur la connection");
 		}
