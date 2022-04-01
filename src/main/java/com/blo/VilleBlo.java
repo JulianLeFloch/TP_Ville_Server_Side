@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import com.dto.Ville;
 
-public interface Ville_Blo {
+public interface VilleBlo {
 
 	@SuppressWarnings("rawtypes")
 	
 	public ArrayList getInfoVilles();
 	
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVille(String nom_Code_Insee);
+	public ArrayList getInfoVille(String nomCodeInsee);
 	
 	public String postVille(Ville ville);
 	

@@ -5,43 +5,43 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dao.Ville_Dao;
+import com.dao.VilleDao;
 import com.dto.Ville;
 
 @Service
-public class Ville_Blo_Impl implements Ville_Blo {
+public class VilleBloImpl implements VilleBlo {
 
 	@Autowired
-	private Ville_Dao ville_Dao;
+	private VilleDao villeDao;
 	
 	@SuppressWarnings("rawtypes")
 	public ArrayList getInfoVilles() {
 		ArrayList villes;
 		
-		villes = ville_Dao.findAllVilles();
+		villes = villeDao.findAllVilles();
 		return villes;
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVille(String nom_Code_Insee) {
+	public ArrayList getInfoVille(String nomCodeInsee) {
 		ArrayList ville;
 		
-		ville = ville_Dao.findVille(nom_Code_Insee);
+		ville = villeDao.findVille(nomCodeInsee);
 		return ville;
 	}
 	
 	public String postVille(Ville ville) {
-		String reponse = ville_Dao.createVille(ville);
+		String reponse = villeDao.createVille(ville);
 		return reponse;
 	}
 
 	public String modifyVille(Ville ville) {
-		String reponse = ville_Dao.modifyVille(ville);
+		String reponse = villeDao.modifyVille(ville);
 		return reponse;
 	}
 
 	public String deleteVille(String code) {
-		String reponse = ville_Dao.deleteVille(code);
+		String reponse = villeDao.deleteVille(code);
 		return reponse;
 	}
 }

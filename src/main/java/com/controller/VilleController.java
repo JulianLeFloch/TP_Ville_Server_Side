@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.blo.Ville_Blo;
+import com.blo.VilleBlo;
 import com.dto.Ville;
 
 @RestController
 //@RequestMapping("/path")
-class Ville_Controller {
+class VilleController {
 
 	@Autowired
-	Ville_Blo ville_Blo_Service;
+	VilleBlo villeBloService;
 
 	// Méthode GET
 	
@@ -30,7 +30,7 @@ class Ville_Controller {
 	public ArrayList villes() {
 		System.out.println("Lancement de l'appel GET : Avoir toutes les villes");
 
-		return ville_Blo_Service.getInfoVilles();
+		return villeBloService.getInfoVilles();
 	}
 	
 	// Méthode GET
@@ -38,10 +38,10 @@ class Ville_Controller {
 		@CrossOrigin
 		@RequestMapping(value = "/Ville", method = RequestMethod.GET)
 		@ResponseBody
-		public ArrayList ville(@RequestParam(value = "code_commune_INSEE") String nom_Code_Insee) {
+		public ArrayList ville(@RequestParam(value = "code_commune_INSEE") String nomCodeInsee) {
 			System.out.println("Lancement de l'appel GET : Avoir une seule ville par code insee");
 
-			return ville_Blo_Service.getInfoVille(nom_Code_Insee);
+			return villeBloService.getInfoVille(nomCodeInsee);
 		}
 		
 		// Méthode POST
@@ -49,9 +49,9 @@ class Ville_Controller {
 		@RequestMapping(value = "/Ville_Ajouter", method = RequestMethod.POST)
 		@ResponseBody
 		public String createVille(@RequestBody Ville ville) {
-			System.out.println("Lancement de la méthode POST : Ajouter une ville --> "  + ville.getNom_commune());
+			System.out.println("Lancement de la méthode POST : Ajouter une ville --> "  + ville.getNomCommune());
 
-			String reponse = ville_Blo_Service.postVille(ville);
+			String reponse = villeBloService.postVille(ville);
 			return reponse;
 		}
 		
@@ -60,9 +60,9 @@ class Ville_Controller {
 		@RequestMapping(value = "/Ville_Modifier", method = RequestMethod.PUT)
 		@ResponseBody
 		public String modifyVille(@RequestBody Ville ville) {
-			System.out.println("Lancement de la méthode PUT : Modification d'une ville " + ville.getNom_commune());
+			System.out.println("Lancement de la méthode PUT : Modification d'une ville " + ville.getNomCommune());
 
-			String reponse = ville_Blo_Service.modifyVille(ville);
+			String reponse = villeBloService.modifyVille(ville);
 			return reponse;
 		}
 		
@@ -73,7 +73,7 @@ class Ville_Controller {
 		public String deleteVille(@RequestParam(value = "code_commune_INSEE") String code) {
 			System.out.println("Lancement de la méthode DELETE : Suppression d'une ville");
 			
-			String reponse = ville_Blo_Service.deleteVille(code);
+			String reponse = villeBloService.deleteVille(code);
 			return reponse;
 		}
 }

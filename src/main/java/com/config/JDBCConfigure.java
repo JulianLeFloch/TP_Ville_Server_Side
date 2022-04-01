@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import org.springframework.context.annotation.Bean;
 
-public class JDBC_Configure {
+public class JDBCConfigure {
 
 	static ResourceBundle info = ResourceBundle.getBundle("application");
 	

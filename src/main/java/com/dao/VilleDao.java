@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 import com.dto.Ville;
 
-public interface Ville_Dao {
+public interface VilleDao {
 	
 	@SuppressWarnings("rawtypes")
 	public ArrayList findAllVilles();
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList findVille(String nom_Code_Insee);
+	public ArrayList findVille(String nomCodeInsee);
 
 	public String createVille(Ville ville);
 	
