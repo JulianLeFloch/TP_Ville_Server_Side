@@ -8,6 +8,6 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-		System.out.println("Application demarrée, vous pouvez utiliser le serveur !");
+		System.out.print("Application demarrée, vous pouvez utiliser le serveur !");
 	}
 }

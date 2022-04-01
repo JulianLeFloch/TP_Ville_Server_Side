@@ -19,7 +19,7 @@ public class VilleDaoImpl implements VilleDao {
 	String error = "Erreur lors de la requête";
 
 	public ArrayList<Ville> findAllVilles() {
-		ArrayList<Ville> villes = new ArrayList<Ville>();
+		ArrayList<Ville> villes = new ArrayList<>();
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "SELECT * FROM ville_france";
@@ -48,7 +48,7 @@ public class VilleDaoImpl implements VilleDao {
 
 	public ArrayList<Ville> findVille(String nomCodeInsee) {
 
-		ArrayList<Ville> villeDemandee = new ArrayList<Ville>();
+		ArrayList<Ville> villeDemandee = new ArrayList<>();
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "SELECT * FROM ville_france WHERE code_commune_INSEE=" + nomCodeInsee;

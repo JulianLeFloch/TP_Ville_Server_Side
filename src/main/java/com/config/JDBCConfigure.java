@@ -18,9 +18,8 @@ public class JDBCConfigure {
 					System.getenv().get("db_pwd"));
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Erreur sur la connection !");
 			System.exit(0);
-			return null;
+			throw new Error("Erreur sur la connection");
 		}
 	}
 }

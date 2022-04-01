@@ -7,7 +7,6 @@ import com.dto.Ville;
 public interface VilleBlo {
 
 	@SuppressWarnings("rawtypes")
-
 	public ArrayList getInfoVilles();
 
 	@SuppressWarnings("rawtypes")
