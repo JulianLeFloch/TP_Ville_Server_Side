@@ -16,8 +16,7 @@ public class VilleBloImpl implements VilleBlo {
 	
 	@SuppressWarnings("rawtypes")
 	public ArrayList getInfoVilles() {
-		return villeDao.findAllVilles();
-		
+		return villeDao.findAllVilles();	
 	}
 	
 	@SuppressWarnings("rawtypes")
@@ -25,15 +24,15 @@ public class VilleBloImpl implements VilleBlo {
 		return villeDao.findVille(nomCodeInsee);
 	}
 	
-	public String postVille(Ville ville) {
-		return villeDao.createVille(ville);
+	public String postVille(Ville villeAjoutee) {
+		return villeDao.createVille(villeAjoutee);
 	}
 
-	public String modifyVille(Ville ville) {
-		return villeDao.modifyVille(ville);
+	public String modifyVille(Ville villeModifiee) {
+		return villeDao.modifyVille(villeModifiee);
 	}
 
-	public String deleteVille(String code) {
-		return villeDao.deleteVille(code);
+	public String deleteVille(String codeSuppression) {
+		return villeDao.deleteVille(codeSuppression);
 	}
 }

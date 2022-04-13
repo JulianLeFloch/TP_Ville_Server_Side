@@ -44,23 +44,24 @@ class VilleController {
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Ajouter", method = RequestMethod.POST)
 	@ResponseBody
-	public String createVille(@RequestBody Ville ville) {
-		return villeBloService.postVille(ville);
+	public String createVille(@RequestBody Ville villeAjoutee) {
+		System.out.println(villeAjoutee.getNomCommune());
+		return villeBloService.postVille(villeAjoutee);
 	}
 
 	// Méthode PUT
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Modifier", method = RequestMethod.PUT)
 	@ResponseBody
-	public String modifyVille(@RequestBody Ville ville) {
-		return villeBloService.modifyVille(ville);
+	public String modifyVille(@RequestBody Ville villeModifiee) {
+		return villeBloService.modifyVille(villeModifiee);
 	}
 
 	// Méthode DELETE
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Enlever", method = RequestMethod.DELETE)
 	@ResponseBody
-	public String deleteVille(@RequestParam(value = "code_commune_INSEE") String code) {
-		return villeBloService.deleteVille(code);
+	public String deleteVille(@RequestParam(value = "code_commune_INSEE") String codeSuppression) {
+		return villeBloService.deleteVille(codeSuppression);
 	}
 }

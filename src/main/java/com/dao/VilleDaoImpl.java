@@ -77,9 +77,10 @@ public class VilleDaoImpl implements VilleDao {
 	public String createVille(Ville ville) {
 		try {
 			conn = JDBCConfigure.getConnection();
-			String query = "INSERT INTO ville_france VALUES('" + ville.getCodeCommuneInsee() + "', '"
-					+ ville.getNomCommune() + "', '" + ville.getCodePostal() + "', '" + ville.getLibelleAcheminement()
-					+ "', '" + ville.getLigne5() + "', '" + ville.getLatitude() + "', '" + ville.getLongitude() + "')";
+			
+			String query = "INSERT INTO ville_france VALUES('"+ville.getNomCommune()+"','"
+					+ville.getCodeCommuneInsee()+"','"+ville.getCodePostal()+"','"+ville.getLigne5()
+					+ "','"+ville.getLibelleAcheminement()+"','"+ ville.getLongitude()+"','"+ville.getLatitude()+"')";
 			st = conn.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
