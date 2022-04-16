@@ -18,7 +18,7 @@ public class VilleDaoImpl implements VilleDao {
 	Ville ville = null;
 	String error = "Erreur lors de la requête";
 
-	public ArrayList<Ville> findAllVilles() {
+	public ArrayList<Ville> TrouverVilles() {
 		ArrayList<Ville> villes = new ArrayList<>();
 		try {
 			conn = JDBCConfigure.getConnection();
@@ -46,7 +46,7 @@ public class VilleDaoImpl implements VilleDao {
 		return villes;
 	}
 
-	public ArrayList<Ville> findVille(String nomCodeInsee) {
+	public ArrayList<Ville> TrouverVille(String nomCodeInsee) {
 
 		ArrayList<Ville> villeDemandee = new ArrayList<>();
 		try {
@@ -74,13 +74,13 @@ public class VilleDaoImpl implements VilleDao {
 		return villeDemandee;
 	}
 
-	public String createVille(Ville ville) {
+	public String CreerVille(Ville ville) {
 		try {
 			conn = JDBCConfigure.getConnection();
 			
-			String query = "INSERT INTO ville_france VALUES('"+ville.getNomCommune()+"','"
-					+ville.getCodeCommuneInsee()+"','"+ville.getCodePostal()+"','"+ville.getLigne5()
-					+ "','"+ville.getLibelleAcheminement()+"','"+ ville.getLongitude()+"','"+ville.getLatitude()+"')";
+			String query = "INSERT INTO ville_france VALUES('"+ville.getCodeCommuneInsee()+"','"
+					+ville.getNomCommune()+"','"+ville.getCodePostal()+"','"+ville.getLibelleAcheminement()
+					+ "','"+ville.getLigne5()+"','"+ ville.getLatitude()+"','"+ville.getLongitude()+"')";
 			st = conn.createStatement();
 			System.out.println(query);
 			st.executeUpdate(query);
@@ -91,7 +91,7 @@ public class VilleDaoImpl implements VilleDao {
 		}
 	}
 
-	public String modifyVille(Ville ville) {
+	public String ModifierVille(Ville ville) {
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "UPDATE ville_france SET Nom_commune='" + ville.getNomCommune() + "', Code_postal='"
@@ -108,7 +108,7 @@ public class VilleDaoImpl implements VilleDao {
 		}
 	}
 
-	public String deleteVille(String code) {
+	public String SupprimerVille(String code) {
 		try {
 			conn = JDBCConfigure.getConnection();
 			String query = "DELETE FROM ville_france WHERE Code_commune_INSEE=" + code;

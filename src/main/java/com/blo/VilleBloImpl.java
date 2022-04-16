@@ -15,24 +15,24 @@ public class VilleBloImpl implements VilleBlo {
 	private VilleDao villeDao;
 	
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVilles() {
-		return villeDao.findAllVilles();	
+	public ArrayList AvoirToutesLesVilles() {
+		return villeDao.TrouverVilles();	
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVille(String nomCodeInsee) {
-		return villeDao.findVille(nomCodeInsee);
+	public ArrayList AvoirUneVille(String nomCodeInsee) {
+		return villeDao.TrouverVille(nomCodeInsee);
 	}
 	
-	public String postVille(Ville villeAjoutee) {
-		return villeDao.createVille(villeAjoutee);
+	public String AjouterUneVille(Ville villeAjoutee) {
+		return villeDao.CreerVille(villeAjoutee);
 	}
 
-	public String modifyVille(Ville villeModifiee) {
-		return villeDao.modifyVille(villeModifiee);
+	public String ModifierUneVille(Ville villeModifiee) {
+		return villeDao.ModifierVille(villeModifiee);
 	}
 
-	public String deleteVille(String codeSuppression) {
-		return villeDao.deleteVille(codeSuppression);
+	public String SupprimerUneVille(String codeSuppression) {
+		return villeDao.SupprimerVille(codeSuppression);
 	}
 }

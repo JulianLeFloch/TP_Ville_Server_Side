@@ -7,14 +7,14 @@ import com.dto.Ville;
 public interface VilleDao {
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList findAllVilles();
+	public ArrayList TrouverVilles();
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList findVille(String nomCodeInsee);
+	public ArrayList TrouverVille(String codeCommuneInsee);
 
-	public String createVille(Ville ville);
+	public String CreerVille(Ville ville);
 
-	public String modifyVille(Ville ville);
+	public String ModifierVille(Ville ville);
 
-	public String deleteVille(String code);
+	public String SupprimerVille(String codeCommuneInsee);
 }

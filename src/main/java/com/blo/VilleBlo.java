@@ -7,14 +7,14 @@ import com.dto.Ville;
 public interface VilleBlo {
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVilles();
+	public ArrayList AvoirToutesLesVilles();
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList getInfoVille(String nomCodeInsee);
+	public ArrayList AvoirUneVille(String codeCommuneInsee);
 
-	public String postVille(Ville ville);
+	public String AjouterUneVille(Ville ville);
 
-	public String modifyVille(Ville ville);
+	public String ModifierUneVille(Ville ville);
 
-	public String deleteVille(String code);
+	public String SupprimerUneVille(String codeCommuneInsee);
 }
