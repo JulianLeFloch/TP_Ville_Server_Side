@@ -20,8 +20,8 @@ public class VilleBloImpl implements VilleBlo {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public ArrayList AvoirUneVille(String nomCodeInsee) {
-		return villeDao.TrouverVille(nomCodeInsee);
+	public ArrayList AvoirUneVille(String nomCode) {
+		return villeDao.TrouverVille(nomCode);
 	}
 	
 	public String AjouterUneVille(Ville villeAjoutee) {

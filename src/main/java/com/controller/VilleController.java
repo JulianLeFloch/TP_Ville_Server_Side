@@ -27,7 +27,7 @@ class VilleController {
 	@CrossOrigin
 	@RequestMapping(value = "/Villes", method = RequestMethod.GET)
 	@ResponseBody
-	public ArrayList villes() {
+	public ArrayList Villes() {
 		return villeBloService.AvoirToutesLesVilles();
 	}
 
@@ -36,15 +36,15 @@ class VilleController {
 	@CrossOrigin
 	@RequestMapping(value = "/Ville", method = RequestMethod.GET)
 	@ResponseBody
-	public ArrayList ville(@RequestParam(value = "codeCommuneInsee") String codeCommuneInsee) {
-		return villeBloService.AvoirUneVille(codeCommuneInsee);
+	public ArrayList Ville(@RequestParam(value = "codeCommuneInsee") String code) {
+		return villeBloService.AvoirUneVille(code);
 	}
 
 	// Méthode POST
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Ajouter", method = RequestMethod.POST)
 	@ResponseBody
-	public String createVille(@RequestBody Ville villeAjoutee) {
+	public String CreerVille(@RequestBody Ville villeAjoutee) {
 		return villeBloService.AjouterUneVille(villeAjoutee);
 	}
 
@@ -52,7 +52,7 @@ class VilleController {
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Modifier", method = RequestMethod.PUT)
 	@ResponseBody
-	public String modifyVille(@RequestBody Ville villeModifiee) {
+	public String ModifierVille(@RequestBody Ville villeModifiee) {
 		return villeBloService.ModifierUneVille(villeModifiee);
 	}
 
@@ -60,7 +60,7 @@ class VilleController {
 	@CrossOrigin
 	@RequestMapping(value = "/Ville_Enlever", method = RequestMethod.DELETE)
 	@ResponseBody
-	public String deleteVille(@RequestParam(value = "codeCommuneInsee") String codeCommuneInsee) {
-		return villeBloService.SupprimerUneVille(codeCommuneInsee);
+	public String SupprimerVille(@RequestParam(value = "codeCommuneInsee") String codeSuppr) {
+		return villeBloService.SupprimerUneVille(codeSuppr);
 	}
 }

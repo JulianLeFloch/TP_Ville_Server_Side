@@ -46,12 +46,12 @@ public class VilleDaoImpl implements VilleDao {
 		return villes;
 	}
 
-	public ArrayList<Ville> TrouverVille(String nomCodeInsee) {
+	public ArrayList<Ville> TrouverVille(String nomCode) {
 
 		ArrayList<Ville> villeDemandee = new ArrayList<>();
 		try {
 			conn = JDBCConfigure.getConnection();
-			String query = "SELECT * FROM ville_france WHERE code_commune_INSEE=" + nomCodeInsee;
+			String query = "SELECT * FROM ville_france WHERE code_commune_INSEE=" + nomCode;
 			st = conn.createStatement();
 			rs = st.executeQuery(query);
 
@@ -108,10 +108,10 @@ public class VilleDaoImpl implements VilleDao {
 		}
 	}
 
-	public String SupprimerVille(String code) {
+	public String SupprimerVille(String nomCode) {
 		try {
 			conn = JDBCConfigure.getConnection();
-			String query = "DELETE FROM ville_france WHERE Code_commune_INSEE=" + code;
+			String query = "DELETE FROM ville_france WHERE Code_commune_INSEE="+nomCode;
 			st = conn.createStatement();
 			st.executeUpdate(query);
 			reponse = "reussite";
